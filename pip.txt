@@ -1,0 +1,5 @@
+pip install dateparser
+pip install git+https://github.com/m-bain/whisperx.git
+pip install faster-whisper
+pip install torchaudio
+pip install ffmpeg-python

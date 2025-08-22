@@ -1,0 +1,764 @@
+2025-08-06 23:25:48 [INFO] MeetingSummarizer: 👤 People extracted: 2
+2025-08-06 23:25:48 [INFO] MeetingSummarizer: 🕒 Dates parsed: 0
+2025-08-06 23:25:48 [INFO] MeetingSummarizer: ✅ Action items extracted: 0
+2025-08-06 23:25:48 [INFO] MeetingSummarizer: 👤 People extracted: 0
+2025-08-06 23:25:48 [INFO] MeetingSummarizer: 🕒 Dates parsed: 0
+2025-08-06 23:25:48 [INFO] MeetingSummarizer: ✅ Action items extracted: 0
+2025-08-06 23:25:48 [INFO] MeetingSummarizer: 👤 People extracted: 0
+2025-08-06 23:25:49 [WARNING] MeetingSummarizer: ⚠️ Could not parse date string: 'next Friday'
+2025-08-06 23:25:49 [INFO] MeetingSummarizer: 🕒 Dates parsed: 0
+2025-08-06 23:25:49 [INFO] MeetingSummarizer: ✅ Action items extracted: 1
+2025-08-06 23:25:49 [INFO] MeetingSummarizer: 👤 People extracted: 0
+2025-08-06 23:25:49 [INFO] MeetingSummarizer: 🕒 Dates parsed: 0
+2025-08-06 23:25:49 [INFO] MeetingSummarizer: ✅ Action items extracted: 0
+2025-08-06 23:25:49 [INFO] MeetingSummarizer: 👤 People extracted: 0
+2025-08-06 23:25:49 [INFO] MeetingSummarizer: 🕒 Dates parsed: 1
+2025-08-06 23:25:49 [INFO] MeetingSummarizer: ✅ Action items extracted: 1
+2025-08-06 23:25:49 [INFO] MeetingSummarizer: 👤 People extracted: 0
+2025-08-06 23:25:49 [INFO] MeetingSummarizer: 🕒 Dates parsed: 0
+2025-08-06 23:25:49 [INFO] MeetingSummarizer: ✅ Action items extracted: 0
+2025-08-06 23:25:49 [INFO] MeetingSummarizer: ✅ Transcript cleaned successfully.
+2025-08-06 23:25:49 [INFO] MeetingSummarizer: 🎤 Segmented transcript into 2 speaker blocks.
+2025-08-06 23:25:49 [ERROR] MeetingSummarizer: ❌ Failed to chunk transcript.
+Traceback (most recent call last):
+  File "/Users/namanjoshi/Workplace/meeting_minutes_summariser/modules/preprocessor.py", line 91, in chunk_text
+    sentences = sent_tokenize(text)
+                ^^^^^^^^^^^^^^^^^^^
+  File "/Users/namanjoshi/miniforge3/lib/python3.12/site-packages/nltk/tokenize/__init__.py", line 119, in sent_tokenize
+    tokenizer = _get_punkt_tokenizer(language)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/namanjoshi/miniforge3/lib/python3.12/site-packages/nltk/tokenize/__init__.py", line 105, in _get_punkt_tokenizer
+    return PunktTokenizer(language)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/namanjoshi/miniforge3/lib/python3.12/site-packages/nltk/tokenize/punkt.py", line 1744, in __init__
+    self.load_lang(lang)
+  File "/Users/namanjoshi/miniforge3/lib/python3.12/site-packages/nltk/tokenize/punkt.py", line 1749, in load_lang
+    lang_dir = find(f"tokenizers/punkt_tab/{lang}/")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/namanjoshi/miniforge3/lib/python3.12/site-packages/nltk/data.py", line 579, in find
+    raise LookupError(resource_not_found)
+LookupError: 
+**********************************************************************
+  Resource [93mpunkt_tab[0m not found.
+  Please use the NLTK Downloader to obtain the resource:
+
+  [31m>>> import nltk
+  >>> nltk.download('punkt_tab')
+  [0m
+  For more information see: https://www.nltk.org/data.html
+
+  Attempted to load [93mtokenizers/punkt_tab/english/[0m
+
+  Searched in:
+    - '/Users/namanjoshi/nltk_data'
+    - '/Users/namanjoshi/miniforge3/nltk_data'
+    - '/Users/namanjoshi/miniforge3/share/nltk_data'
+    - '/Users/namanjoshi/miniforge3/lib/nltk_data'
+    - '/usr/share/nltk_data'
+    - '/usr/local/share/nltk_data'
+    - '/usr/lib/nltk_data'
+    - '/usr/local/lib/nltk_data'
+**********************************************************************
+
+2025-08-06 23:25:49 [INFO] MeetingSummarizer: 🔊 Transcribing audio file: /var/folders/dw/4l9d7nm15sd7z8my4232y6bw0000gn/T/tmpun97xf7j.mp3 using model 'base'
+2025-08-06 23:25:49 [INFO] MeetingSummarizer: ✅ Transcription completed successfully.
+2025-08-06 23:25:49 [DEBUG] MeetingSummarizer: 🧹 Deleted temporary file: /var/folders/dw/4l9d7nm15sd7z8my4232y6bw0000gn/T/tmpun97xf7j.mp3
+2025-08-06 23:25:49 [ERROR] MeetingSummarizer: ❌ Unsupported audio format: .flac
+2025-08-06 23:30:49 [INFO] MeetingSummarizer: 👤 People extracted: 2
+2025-08-06 23:30:49 [INFO] MeetingSummarizer: 🕒 Dates parsed: 0
+2025-08-06 23:30:49 [INFO] MeetingSummarizer: ✅ Action items extracted: 0
+2025-08-06 23:30:49 [INFO] MeetingSummarizer: 👤 People extracted: 0
+2025-08-06 23:30:49 [INFO] MeetingSummarizer: 🕒 Dates parsed: 0
+2025-08-06 23:30:49 [INFO] MeetingSummarizer: ✅ Action items extracted: 0
+2025-08-06 23:30:49 [INFO] MeetingSummarizer: 👤 People extracted: 0
+2025-08-06 23:30:50 [WARNING] MeetingSummarizer: ⚠️ Could not parse date string: 'next Friday'
+2025-08-06 23:30:50 [INFO] MeetingSummarizer: 🕒 Dates parsed: 0
+2025-08-06 23:30:50 [INFO] MeetingSummarizer: ✅ Action items extracted: 1
+2025-08-06 23:30:50 [INFO] MeetingSummarizer: 👤 People extracted: 0
+2025-08-06 23:30:50 [INFO] MeetingSummarizer: 🕒 Dates parsed: 0
+2025-08-06 23:30:50 [INFO] MeetingSummarizer: ✅ Action items extracted: 0
+2025-08-06 23:30:50 [INFO] MeetingSummarizer: 👤 People extracted: 0
+2025-08-06 23:30:50 [INFO] MeetingSummarizer: 🕒 Dates parsed: 1
+2025-08-06 23:30:50 [INFO] MeetingSummarizer: ✅ Action items extracted: 1
+2025-08-06 23:30:50 [INFO] MeetingSummarizer: 👤 People extracted: 0
+2025-08-06 23:30:50 [INFO] MeetingSummarizer: 🕒 Dates parsed: 0
+2025-08-06 23:30:50 [INFO] MeetingSummarizer: ✅ Action items extracted: 0
+2025-08-06 23:30:50 [INFO] MeetingSummarizer: ✅ Transcript cleaned successfully.
+2025-08-06 23:30:50 [INFO] MeetingSummarizer: 🎤 Segmented transcript into 2 speaker blocks.
+2025-08-06 23:30:50 [ERROR] MeetingSummarizer: ❌ Failed to chunk transcript.
+Traceback (most recent call last):
+  File "/Users/namanjoshi/Workplace/meeting_minutes_summariser/modules/preprocessor.py", line 91, in chunk_text
+    sentences = sent_tokenize(text)
+                ^^^^^^^^^^^^^^^^^^^
+  File "/Users/namanjoshi/miniforge3/lib/python3.12/site-packages/nltk/tokenize/__init__.py", line 119, in sent_tokenize
+    tokenizer = _get_punkt_tokenizer(language)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/namanjoshi/miniforge3/lib/python3.12/site-packages/nltk/tokenize/__init__.py", line 105, in _get_punkt_tokenizer
+    return PunktTokenizer(language)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/namanjoshi/miniforge3/lib/python3.12/site-packages/nltk/tokenize/punkt.py", line 1744, in __init__
+    self.load_lang(lang)
+  File "/Users/namanjoshi/miniforge3/lib/python3.12/site-packages/nltk/tokenize/punkt.py", line 1749, in load_lang
+    lang_dir = find(f"tokenizers/punkt_tab/{lang}/")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/namanjoshi/miniforge3/lib/python3.12/site-packages/nltk/data.py", line 579, in find
+    raise LookupError(resource_not_found)
+LookupError: 
+**********************************************************************
+  Resource [93mpunkt_tab[0m not found.
+  Please use the NLTK Downloader to obtain the resource:
+
+  [31m>>> import nltk
+  >>> nltk.download('punkt_tab')
+  [0m
+  For more information see: https://www.nltk.org/data.html
+
+  Attempted to load [93mtokenizers/punkt_tab/english/[0m
+
+  Searched in:
+    - '/Users/namanjoshi/nltk_data'
+    - '/Users/namanjoshi/miniforge3/nltk_data'
+    - '/Users/namanjoshi/miniforge3/share/nltk_data'
+    - '/Users/namanjoshi/miniforge3/lib/nltk_data'
+    - '/usr/share/nltk_data'
+    - '/usr/local/share/nltk_data'
+    - '/usr/lib/nltk_data'
+    - '/usr/local/lib/nltk_data'
+**********************************************************************
+
+2025-08-06 23:30:50 [INFO] MeetingSummarizer: 🔊 Transcribing audio file: /var/folders/dw/4l9d7nm15sd7z8my4232y6bw0000gn/T/tmpau5f_ii_.mp3 using model 'base'
+2025-08-06 23:30:50 [INFO] MeetingSummarizer: ✅ Transcription completed successfully.
+2025-08-06 23:30:50 [DEBUG] MeetingSummarizer: 🧹 Deleted temporary file: /var/folders/dw/4l9d7nm15sd7z8my4232y6bw0000gn/T/tmpau5f_ii_.mp3
+2025-08-06 23:30:50 [ERROR] MeetingSummarizer: ❌ Unsupported audio format: .flac
+2025-08-06 23:34:44 [INFO] MeetingSummarizer: 👤 People extracted: 2
+2025-08-06 23:34:44 [INFO] MeetingSummarizer: 🕒 Dates parsed: 0
+2025-08-06 23:34:44 [INFO] MeetingSummarizer: ✅ Action items extracted: 0
+2025-08-06 23:34:44 [INFO] MeetingSummarizer: 👤 People extracted: 0
+2025-08-06 23:34:44 [INFO] MeetingSummarizer: 🕒 Dates parsed: 0
+2025-08-06 23:34:44 [INFO] MeetingSummarizer: ✅ Action items extracted: 0
+2025-08-06 23:34:44 [INFO] MeetingSummarizer: 👤 People extracted: 0
+2025-08-06 23:34:45 [WARNING] MeetingSummarizer: ⚠️ Could not parse date string: 'next Friday'
+2025-08-06 23:34:45 [INFO] MeetingSummarizer: 🕒 Dates parsed: 0
+2025-08-06 23:34:45 [INFO] MeetingSummarizer: ✅ Action items extracted: 1
+2025-08-06 23:34:45 [INFO] MeetingSummarizer: 👤 People extracted: 0
+2025-08-06 23:34:45 [INFO] MeetingSummarizer: 🕒 Dates parsed: 0
+2025-08-06 23:34:45 [INFO] MeetingSummarizer: ✅ Action items extracted: 0
+2025-08-06 23:34:45 [INFO] MeetingSummarizer: 👤 People extracted: 0
+2025-08-06 23:34:45 [INFO] MeetingSummarizer: 🕒 Dates parsed: 1
+2025-08-06 23:34:45 [INFO] MeetingSummarizer: ✅ Action items extracted: 1
+2025-08-06 23:34:45 [INFO] MeetingSummarizer: 👤 People extracted: 0
+2025-08-06 23:34:45 [INFO] MeetingSummarizer: 🕒 Dates parsed: 0
+2025-08-06 23:34:45 [INFO] MeetingSummarizer: ✅ Action items extracted: 0
+2025-08-06 23:34:45 [INFO] MeetingSummarizer: ✅ Transcript cleaned successfully.
+2025-08-06 23:34:45 [INFO] MeetingSummarizer: 🎤 Segmented transcript into 2 speaker blocks.
+2025-08-06 23:34:45 [ERROR] MeetingSummarizer: ❌ Failed to chunk transcript.
+Traceback (most recent call last):
+  File "/Users/namanjoshi/Workplace/meeting_minutes_summariser/modules/preprocessor.py", line 91, in chunk_text
+    sentences = sent_tokenize(text)
+                ^^^^^^^^^^^^^^^^^^^
+  File "/Users/namanjoshi/miniforge3/lib/python3.12/site-packages/nltk/tokenize/__init__.py", line 119, in sent_tokenize
+    tokenizer = _get_punkt_tokenizer(language)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/namanjoshi/miniforge3/lib/python3.12/site-packages/nltk/tokenize/__init__.py", line 105, in _get_punkt_tokenizer
+    return PunktTokenizer(language)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/namanjoshi/miniforge3/lib/python3.12/site-packages/nltk/tokenize/punkt.py", line 1744, in __init__
+    self.load_lang(lang)
+  File "/Users/namanjoshi/miniforge3/lib/python3.12/site-packages/nltk/tokenize/punkt.py", line 1749, in load_lang
+    lang_dir = find(f"tokenizers/punkt_tab/{lang}/")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/namanjoshi/miniforge3/lib/python3.12/site-packages/nltk/data.py", line 579, in find
+    raise LookupError(resource_not_found)
+LookupError: 
+**********************************************************************
+  Resource [93mpunkt_tab[0m not found.
+  Please use the NLTK Downloader to obtain the resource:
+
+  [31m>>> import nltk
+  >>> nltk.download('punkt_tab')
+  [0m
+  For more information see: https://www.nltk.org/data.html
+
+  Attempted to load [93mtokenizers/punkt_tab/english/[0m
+
+  Searched in:
+    - '/Users/namanjoshi/nltk_data'
+    - '/Users/namanjoshi/miniforge3/nltk_data'
+    - '/Users/namanjoshi/miniforge3/share/nltk_data'
+    - '/Users/namanjoshi/miniforge3/lib/nltk_data'
+    - '/usr/share/nltk_data'
+    - '/usr/local/share/nltk_data'
+    - '/usr/lib/nltk_data'
+    - '/usr/local/lib/nltk_data'
+**********************************************************************
+
+2025-08-06 23:34:45 [INFO] MeetingSummarizer: 🔊 Transcribing audio file: /var/folders/dw/4l9d7nm15sd7z8my4232y6bw0000gn/T/tmp5tnqu1l3.mp3 using model 'base'
+2025-08-06 23:34:45 [INFO] MeetingSummarizer: ✅ Transcription completed successfully.
+2025-08-06 23:34:45 [DEBUG] MeetingSummarizer: 🧹 Deleted temporary file: /var/folders/dw/4l9d7nm15sd7z8my4232y6bw0000gn/T/tmp5tnqu1l3.mp3
+2025-08-06 23:34:45 [ERROR] MeetingSummarizer: ❌ Unsupported audio format: .flac
+2025-08-06 23:37:24 [INFO] MeetingSummarizer: 👤 People extracted: 2
+2025-08-06 23:37:24 [INFO] MeetingSummarizer: 🕒 Dates parsed: 0
+2025-08-06 23:37:24 [INFO] MeetingSummarizer: ✅ Action items extracted: 0
+2025-08-06 23:37:24 [INFO] MeetingSummarizer: 👤 People extracted: 0
+2025-08-06 23:37:24 [INFO] MeetingSummarizer: 🕒 Dates parsed: 0
+2025-08-06 23:37:24 [INFO] MeetingSummarizer: ✅ Action items extracted: 0
+2025-08-06 23:37:24 [INFO] MeetingSummarizer: 👤 People extracted: 0
+2025-08-06 23:37:25 [WARNING] MeetingSummarizer: Could not parse date string: 'next Friday'
+2025-08-06 23:37:25 [INFO] MeetingSummarizer: 🕒 Dates parsed: 0
+2025-08-06 23:37:25 [INFO] MeetingSummarizer: ✅ Action items extracted: 1
+2025-08-06 23:37:25 [INFO] MeetingSummarizer: 👤 People extracted: 0
+2025-08-06 23:37:25 [INFO] MeetingSummarizer: 🕒 Dates parsed: 0
+2025-08-06 23:37:25 [INFO] MeetingSummarizer: ✅ Action items extracted: 0
+2025-08-06 23:37:25 [INFO] MeetingSummarizer: 👤 People extracted: 0
+2025-08-06 23:37:25 [INFO] MeetingSummarizer: 🕒 Dates parsed: 1
+2025-08-06 23:37:25 [INFO] MeetingSummarizer: ✅ Action items extracted: 1
+2025-08-06 23:37:25 [INFO] MeetingSummarizer: 👤 People extracted: 0
+2025-08-06 23:37:25 [INFO] MeetingSummarizer: 🕒 Dates parsed: 0
+2025-08-06 23:37:25 [INFO] MeetingSummarizer: ✅ Action items extracted: 0
+2025-08-06 23:37:25 [INFO] MeetingSummarizer: ✅ Transcript cleaned successfully.
+2025-08-06 23:37:25 [INFO] MeetingSummarizer: 🎤 Segmented transcript into 2 speaker blocks.
+2025-08-06 23:37:25 [ERROR] MeetingSummarizer: ❌ Failed to chunk transcript.
+Traceback (most recent call last):
+  File "/Users/namanjoshi/Workplace/meeting_minutes_summariser/modules/preprocessor.py", line 91, in chunk_text
+    sentences = sent_tokenize(text)
+                ^^^^^^^^^^^^^^^^^^^
+  File "/Users/namanjoshi/miniforge3/lib/python3.12/site-packages/nltk/tokenize/__init__.py", line 119, in sent_tokenize
+    tokenizer = _get_punkt_tokenizer(language)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/namanjoshi/miniforge3/lib/python3.12/site-packages/nltk/tokenize/__init__.py", line 105, in _get_punkt_tokenizer
+    return PunktTokenizer(language)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/namanjoshi/miniforge3/lib/python3.12/site-packages/nltk/tokenize/punkt.py", line 1744, in __init__
+    self.load_lang(lang)
+  File "/Users/namanjoshi/miniforge3/lib/python3.12/site-packages/nltk/tokenize/punkt.py", line 1749, in load_lang
+    lang_dir = find(f"tokenizers/punkt_tab/{lang}/")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/namanjoshi/miniforge3/lib/python3.12/site-packages/nltk/data.py", line 579, in find
+    raise LookupError(resource_not_found)
+LookupError: 
+**********************************************************************
+  Resource [93mpunkt_tab[0m not found.
+  Please use the NLTK Downloader to obtain the resource:
+
+  [31m>>> import nltk
+  >>> nltk.download('punkt_tab')
+  [0m
+  For more information see: https://www.nltk.org/data.html
+
+  Attempted to load [93mtokenizers/punkt_tab/english/[0m
+
+  Searched in:
+    - '/Users/namanjoshi/nltk_data'
+    - '/Users/namanjoshi/miniforge3/nltk_data'
+    - '/Users/namanjoshi/miniforge3/share/nltk_data'
+    - '/Users/namanjoshi/miniforge3/lib/nltk_data'
+    - '/usr/share/nltk_data'
+    - '/usr/local/share/nltk_data'
+    - '/usr/lib/nltk_data'
+    - '/usr/local/lib/nltk_data'
+**********************************************************************
+
+2025-08-06 23:37:25 [INFO] MeetingSummarizer: 🔊 Transcribing audio file: /var/folders/dw/4l9d7nm15sd7z8my4232y6bw0000gn/T/tmpmfvmpl48.mp3 using model 'base'
+2025-08-06 23:37:25 [INFO] MeetingSummarizer: ✅ Transcription completed successfully.
+2025-08-06 23:37:25 [DEBUG] MeetingSummarizer: 🧹 Deleted temporary file: /var/folders/dw/4l9d7nm15sd7z8my4232y6bw0000gn/T/tmpmfvmpl48.mp3
+2025-08-06 23:37:25 [ERROR] MeetingSummarizer: ❌ Unsupported audio format: .flac
+2025-08-06 23:42:08 [INFO] MeetingSummarizer: 👤 People extracted: 2
+2025-08-06 23:42:08 [INFO] MeetingSummarizer: 🕒 Dates parsed: 0
+2025-08-06 23:42:08 [INFO] MeetingSummarizer: ✅ Action items extracted: 0
+2025-08-06 23:42:08 [INFO] MeetingSummarizer: 👤 People extracted: 0
+2025-08-06 23:42:08 [INFO] MeetingSummarizer: 🕒 Dates parsed: 0
+2025-08-06 23:42:08 [INFO] MeetingSummarizer: ✅ Action items extracted: 0
+2025-08-06 23:42:08 [INFO] MeetingSummarizer: 👤 People extracted: 0
+2025-08-06 23:42:08 [WARNING] MeetingSummarizer: Could not parse date string: 'next Friday'
+2025-08-06 23:42:08 [INFO] MeetingSummarizer: 🕒 Dates parsed: 0
+2025-08-06 23:42:08 [INFO] MeetingSummarizer: ✅ Action items extracted: 1
+2025-08-06 23:42:08 [INFO] MeetingSummarizer: 👤 People extracted: 0
+2025-08-06 23:42:08 [INFO] MeetingSummarizer: 🕒 Dates parsed: 0
+2025-08-06 23:42:08 [INFO] MeetingSummarizer: ✅ Action items extracted: 0
+2025-08-06 23:42:08 [INFO] MeetingSummarizer: 👤 People extracted: 0
+2025-08-06 23:42:08 [INFO] MeetingSummarizer: 🕒 Dates parsed: 1
+2025-08-06 23:42:08 [INFO] MeetingSummarizer: ✅ Action items extracted: 1
+2025-08-06 23:42:08 [INFO] MeetingSummarizer: 👤 People extracted: 0
+2025-08-06 23:42:08 [INFO] MeetingSummarizer: 🕒 Dates parsed: 0
+2025-08-06 23:42:08 [INFO] MeetingSummarizer: ✅ Action items extracted: 0
+2025-08-06 23:42:08 [INFO] MeetingSummarizer: ✅ Transcript cleaned successfully.
+2025-08-06 23:42:08 [INFO] MeetingSummarizer: 🎤 Segmented transcript into 2 speaker blocks.
+2025-08-06 23:42:08 [ERROR] MeetingSummarizer: ❌ Failed to chunk transcript.
+Traceback (most recent call last):
+  File "/Users/namanjoshi/Workplace/meeting_minutes_summariser/modules/preprocessor.py", line 91, in chunk_text
+    sentences = sent_tokenize(text)
+                ^^^^^^^^^^^^^^^^^^^
+  File "/Users/namanjoshi/miniforge3/lib/python3.12/site-packages/nltk/tokenize/__init__.py", line 119, in sent_tokenize
+    tokenizer = _get_punkt_tokenizer(language)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/namanjoshi/miniforge3/lib/python3.12/site-packages/nltk/tokenize/__init__.py", line 105, in _get_punkt_tokenizer
+    return PunktTokenizer(language)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/namanjoshi/miniforge3/lib/python3.12/site-packages/nltk/tokenize/punkt.py", line 1744, in __init__
+    self.load_lang(lang)
+  File "/Users/namanjoshi/miniforge3/lib/python3.12/site-packages/nltk/tokenize/punkt.py", line 1749, in load_lang
+    lang_dir = find(f"tokenizers/punkt_tab/{lang}/")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/namanjoshi/miniforge3/lib/python3.12/site-packages/nltk/data.py", line 579, in find
+    raise LookupError(resource_not_found)
+LookupError: 
+**********************************************************************
+  Resource [93mpunkt_tab[0m not found.
+  Please use the NLTK Downloader to obtain the resource:
+
+  [31m>>> import nltk
+  >>> nltk.download('punkt_tab')
+  [0m
+  For more information see: https://www.nltk.org/data.html
+
+  Attempted to load [93mtokenizers/punkt_tab/english/[0m
+
+  Searched in:
+    - '/Users/namanjoshi/nltk_data'
+    - '/Users/namanjoshi/miniforge3/nltk_data'
+    - '/Users/namanjoshi/miniforge3/share/nltk_data'
+    - '/Users/namanjoshi/miniforge3/lib/nltk_data'
+    - '/usr/share/nltk_data'
+    - '/usr/local/share/nltk_data'
+    - '/usr/lib/nltk_data'
+    - '/usr/local/lib/nltk_data'
+**********************************************************************
+
+2025-08-06 23:42:08 [INFO] MeetingSummarizer: 🔊 Transcribing audio file: /var/folders/dw/4l9d7nm15sd7z8my4232y6bw0000gn/T/tmpt4stqsul.mp3 using model 'base'
+2025-08-06 23:42:08 [INFO] MeetingSummarizer: ✅ Transcription completed successfully.
+2025-08-06 23:42:08 [DEBUG] MeetingSummarizer: 🧹 Deleted temporary file: /var/folders/dw/4l9d7nm15sd7z8my4232y6bw0000gn/T/tmpt4stqsul.mp3
+2025-08-06 23:42:08 [ERROR] MeetingSummarizer: ❌ Unsupported audio format: .flac
+2025-08-06 23:48:38 [INFO] MeetingSummarizer: 👤 People extracted: 2
+2025-08-06 23:48:38 [INFO] MeetingSummarizer: 🕒 Dates parsed: 0
+2025-08-06 23:48:38 [INFO] MeetingSummarizer: ✅ Action items extracted: 0
+2025-08-06 23:48:38 [INFO] MeetingSummarizer: 👤 People extracted: 0
+2025-08-06 23:48:38 [INFO] MeetingSummarizer: 🕒 Dates parsed: 0
+2025-08-06 23:48:38 [INFO] MeetingSummarizer: ✅ Action items extracted: 0
+2025-08-06 23:48:38 [INFO] MeetingSummarizer: 👤 People extracted: 0
+2025-08-06 23:48:38 [ERROR] MeetingSummarizer: ❌ Failed to parse date string: 'next Friday'
+Traceback (most recent call last):
+  File "/Users/namanjoshi/Workplace/meeting_minutes_summariser/modules/date_utils.py", line 32, in parse_date_string
+    parsed = dateparser.parse(date_str, settings=settings)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/namanjoshi/miniforge3/lib/python3.12/site-packages/dateparser/conf.py", line 100, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/Users/namanjoshi/miniforge3/lib/python3.12/site-packages/dateparser/__init__.py", line 71, in parse
+    parser = DateDataParser(
+             ^^^^^^^^^^^^^^^
+  File "/Users/namanjoshi/miniforge3/lib/python3.12/site-packages/dateparser/conf.py", line 100, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/Users/namanjoshi/miniforge3/lib/python3.12/site-packages/dateparser/date.py", line 454, in __init__
+    check_settings(settings)
+  File "/Users/namanjoshi/miniforge3/lib/python3.12/site-packages/dateparser/conf.py", line 239, in check_settings
+    raise SettingValidationError('"{}" is not a valid setting'.format(setting))
+dateparser.conf.SettingValidationError: "languages" is not a valid setting
+2025-08-06 23:48:38 [INFO] MeetingSummarizer: 🕒 Dates parsed: 0
+2025-08-06 23:48:38 [INFO] MeetingSummarizer: ✅ Action items extracted: 1
+2025-08-06 23:48:38 [INFO] MeetingSummarizer: 👤 People extracted: 0
+2025-08-06 23:48:38 [INFO] MeetingSummarizer: 🕒 Dates parsed: 0
+2025-08-06 23:48:38 [INFO] MeetingSummarizer: ✅ Action items extracted: 0
+2025-08-06 23:48:38 [INFO] MeetingSummarizer: 👤 People extracted: 0
+2025-08-06 23:48:38 [ERROR] MeetingSummarizer: ❌ Failed to parse date string: 'Monday'
+Traceback (most recent call last):
+  File "/Users/namanjoshi/Workplace/meeting_minutes_summariser/modules/date_utils.py", line 32, in parse_date_string
+    parsed = dateparser.parse(date_str, settings=settings)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/namanjoshi/miniforge3/lib/python3.12/site-packages/dateparser/conf.py", line 100, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/Users/namanjoshi/miniforge3/lib/python3.12/site-packages/dateparser/__init__.py", line 71, in parse
+    parser = DateDataParser(
+             ^^^^^^^^^^^^^^^
+  File "/Users/namanjoshi/miniforge3/lib/python3.12/site-packages/dateparser/conf.py", line 100, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/Users/namanjoshi/miniforge3/lib/python3.12/site-packages/dateparser/date.py", line 454, in __init__
+    check_settings(settings)
+  File "/Users/namanjoshi/miniforge3/lib/python3.12/site-packages/dateparser/conf.py", line 239, in check_settings
+    raise SettingValidationError('"{}" is not a valid setting'.format(setting))
+dateparser.conf.SettingValidationError: "languages" is not a valid setting
+2025-08-06 23:48:38 [INFO] MeetingSummarizer: 🕒 Dates parsed: 0
+2025-08-06 23:48:38 [INFO] MeetingSummarizer: ✅ Action items extracted: 1
+2025-08-06 23:48:38 [INFO] MeetingSummarizer: 👤 People extracted: 0
+2025-08-06 23:48:38 [INFO] MeetingSummarizer: 🕒 Dates parsed: 0
+2025-08-06 23:48:38 [INFO] MeetingSummarizer: ✅ Action items extracted: 0
+2025-08-06 23:48:38 [INFO] MeetingSummarizer: ✅ Transcript cleaned successfully.
+2025-08-06 23:48:38 [INFO] MeetingSummarizer: 🎤 Segmented transcript into 2 speaker blocks.
+2025-08-06 23:48:38 [INFO] MeetingSummarizer: 🧩 Split transcript into 5 chunks.
+2025-08-06 23:48:38 [INFO] MeetingSummarizer: 🔊 Transcribing audio file: /var/folders/dw/4l9d7nm15sd7z8my4232y6bw0000gn/T/tmpb1awvibj.mp3 using model 'base'
+2025-08-06 23:48:38 [INFO] MeetingSummarizer: ✅ Transcription completed successfully.
+2025-08-06 23:48:38 [DEBUG] MeetingSummarizer: 🧹 Deleted temporary file: /var/folders/dw/4l9d7nm15sd7z8my4232y6bw0000gn/T/tmpb1awvibj.mp3
+2025-08-06 23:48:38 [ERROR] MeetingSummarizer: ❌ Unsupported audio format: .flac
+2025-08-06 23:50:28 [INFO] MeetingSummarizer: 👤 People extracted: 2
+2025-08-06 23:50:28 [INFO] MeetingSummarizer: 🕒 Dates parsed: 0
+2025-08-06 23:50:28 [INFO] MeetingSummarizer: ✅ Action items extracted: 0
+2025-08-06 23:50:28 [INFO] MeetingSummarizer: 👤 People extracted: 0
+2025-08-06 23:50:28 [INFO] MeetingSummarizer: 🕒 Dates parsed: 0
+2025-08-06 23:50:28 [INFO] MeetingSummarizer: ✅ Action items extracted: 0
+2025-08-06 23:50:28 [INFO] MeetingSummarizer: 👤 People extracted: 0
+2025-08-06 23:50:28 [ERROR] MeetingSummarizer: ❌ Failed to parse date string: 'next Friday'
+Traceback (most recent call last):
+  File "/Users/namanjoshi/Workplace/meeting_minutes_summariser/modules/date_utils.py", line 32, in parse_date_string
+    parsed = dateparser.parse(date_str, settings=settings, languages=["en"])
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/namanjoshi/miniforge3/lib/python3.12/site-packages/dateparser/conf.py", line 100, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/Users/namanjoshi/miniforge3/lib/python3.12/site-packages/dateparser/__init__.py", line 71, in parse
+    parser = DateDataParser(
+             ^^^^^^^^^^^^^^^
+  File "/Users/namanjoshi/miniforge3/lib/python3.12/site-packages/dateparser/conf.py", line 100, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/Users/namanjoshi/miniforge3/lib/python3.12/site-packages/dateparser/date.py", line 454, in __init__
+    check_settings(settings)
+  File "/Users/namanjoshi/miniforge3/lib/python3.12/site-packages/dateparser/conf.py", line 239, in check_settings
+    raise SettingValidationError('"{}" is not a valid setting'.format(setting))
+dateparser.conf.SettingValidationError: "languages" is not a valid setting
+2025-08-06 23:50:28 [INFO] MeetingSummarizer: 🕒 Dates parsed: 0
+2025-08-06 23:50:28 [INFO] MeetingSummarizer: ✅ Action items extracted: 1
+2025-08-06 23:50:28 [INFO] MeetingSummarizer: 👤 People extracted: 0
+2025-08-06 23:50:28 [INFO] MeetingSummarizer: 🕒 Dates parsed: 0
+2025-08-06 23:50:28 [INFO] MeetingSummarizer: ✅ Action items extracted: 0
+2025-08-06 23:50:28 [INFO] MeetingSummarizer: 👤 People extracted: 0
+2025-08-06 23:50:28 [ERROR] MeetingSummarizer: ❌ Failed to parse date string: 'Monday'
+Traceback (most recent call last):
+  File "/Users/namanjoshi/Workplace/meeting_minutes_summariser/modules/date_utils.py", line 32, in parse_date_string
+    parsed = dateparser.parse(date_str, settings=settings, languages=["en"])
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/namanjoshi/miniforge3/lib/python3.12/site-packages/dateparser/conf.py", line 100, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/Users/namanjoshi/miniforge3/lib/python3.12/site-packages/dateparser/__init__.py", line 71, in parse
+    parser = DateDataParser(
+             ^^^^^^^^^^^^^^^
+  File "/Users/namanjoshi/miniforge3/lib/python3.12/site-packages/dateparser/conf.py", line 100, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/Users/namanjoshi/miniforge3/lib/python3.12/site-packages/dateparser/date.py", line 454, in __init__
+    check_settings(settings)
+  File "/Users/namanjoshi/miniforge3/lib/python3.12/site-packages/dateparser/conf.py", line 239, in check_settings
+    raise SettingValidationError('"{}" is not a valid setting'.format(setting))
+dateparser.conf.SettingValidationError: "languages" is not a valid setting
+2025-08-06 23:50:28 [INFO] MeetingSummarizer: 🕒 Dates parsed: 0
+2025-08-06 23:50:28 [INFO] MeetingSummarizer: ✅ Action items extracted: 1
+2025-08-06 23:50:28 [INFO] MeetingSummarizer: 👤 People extracted: 0
+2025-08-06 23:50:28 [INFO] MeetingSummarizer: 🕒 Dates parsed: 0
+2025-08-06 23:50:28 [INFO] MeetingSummarizer: ✅ Action items extracted: 0
+2025-08-06 23:50:28 [INFO] MeetingSummarizer: ✅ Transcript cleaned successfully.
+2025-08-06 23:50:28 [INFO] MeetingSummarizer: 🎤 Segmented transcript into 2 speaker blocks.
+2025-08-06 23:50:28 [INFO] MeetingSummarizer: 🧩 Split transcript into 5 chunks.
+2025-08-06 23:50:28 [INFO] MeetingSummarizer: 🔊 Transcribing audio file: /var/folders/dw/4l9d7nm15sd7z8my4232y6bw0000gn/T/tmpcjg57oc4.mp3 using model 'base'
+2025-08-06 23:50:28 [INFO] MeetingSummarizer: ✅ Transcription completed successfully.
+2025-08-06 23:50:28 [DEBUG] MeetingSummarizer: 🧹 Deleted temporary file: /var/folders/dw/4l9d7nm15sd7z8my4232y6bw0000gn/T/tmpcjg57oc4.mp3
+2025-08-06 23:50:28 [ERROR] MeetingSummarizer: ❌ Unsupported audio format: .flac
+2025-08-06 23:54:51 [INFO] MeetingSummarizer: 👤 People extracted: 2
+2025-08-06 23:54:51 [INFO] MeetingSummarizer: 🕒 Dates parsed: 0
+2025-08-06 23:54:51 [INFO] MeetingSummarizer: ✅ Action items extracted: 0
+2025-08-06 23:54:51 [INFO] MeetingSummarizer: 👤 People extracted: 0
+2025-08-06 23:54:51 [INFO] MeetingSummarizer: 🕒 Dates parsed: 0
+2025-08-06 23:54:51 [INFO] MeetingSummarizer: ✅ Action items extracted: 0
+2025-08-06 23:54:51 [INFO] MeetingSummarizer: 👤 People extracted: 0
+2025-08-06 23:54:51 [INFO] MeetingSummarizer: 🕒 Dates parsed: 0
+2025-08-06 23:54:51 [INFO] MeetingSummarizer: ✅ Action items extracted: 1
+2025-08-06 23:54:51 [INFO] MeetingSummarizer: 👤 People extracted: 0
+2025-08-06 23:54:51 [INFO] MeetingSummarizer: 🕒 Dates parsed: 0
+2025-08-06 23:54:51 [INFO] MeetingSummarizer: ✅ Action items extracted: 0
+2025-08-06 23:54:51 [INFO] MeetingSummarizer: 👤 People extracted: 0
+2025-08-06 23:54:51 [INFO] MeetingSummarizer: 🕒 Dates parsed: 0
+2025-08-06 23:54:51 [INFO] MeetingSummarizer: ✅ Action items extracted: 1
+2025-08-06 23:54:51 [INFO] MeetingSummarizer: 👤 People extracted: 0
+2025-08-06 23:54:51 [INFO] MeetingSummarizer: 🕒 Dates parsed: 0
+2025-08-06 23:54:51 [INFO] MeetingSummarizer: ✅ Action items extracted: 0
+2025-08-06 23:54:51 [INFO] MeetingSummarizer: ✅ Transcript cleaned successfully.
+2025-08-06 23:54:51 [INFO] MeetingSummarizer: 🎤 Segmented transcript into 2 speaker blocks.
+2025-08-06 23:54:51 [INFO] MeetingSummarizer: 🧩 Split transcript into 5 chunks.
+2025-08-06 23:54:51 [INFO] MeetingSummarizer: 🔊 Transcribing audio file: /var/folders/dw/4l9d7nm15sd7z8my4232y6bw0000gn/T/tmp2myd2s_7.mp3 using model 'base'
+2025-08-06 23:54:51 [INFO] MeetingSummarizer: ✅ Transcription completed successfully.
+2025-08-06 23:54:51 [DEBUG] MeetingSummarizer: 🧹 Deleted temporary file: /var/folders/dw/4l9d7nm15sd7z8my4232y6bw0000gn/T/tmp2myd2s_7.mp3
+2025-08-06 23:54:51 [ERROR] MeetingSummarizer: ❌ Unsupported audio format: .flac
+2025-08-06 23:58:03 [INFO] MeetingSummarizer: 👤 People extracted: 2
+2025-08-06 23:58:03 [INFO] MeetingSummarizer: 🕒 Dates parsed: 0
+2025-08-06 23:58:03 [INFO] MeetingSummarizer: ✅ Action items extracted: 0
+2025-08-06 23:58:03 [INFO] MeetingSummarizer: 👤 People extracted: 0
+2025-08-06 23:58:03 [INFO] MeetingSummarizer: 🕒 Dates parsed: 0
+2025-08-06 23:58:03 [INFO] MeetingSummarizer: ✅ Action items extracted: 0
+2025-08-06 23:58:03 [INFO] MeetingSummarizer: 👤 People extracted: 0
+2025-08-06 23:58:03 [INFO] MeetingSummarizer: 🕒 Dates parsed: 0
+2025-08-06 23:58:03 [INFO] MeetingSummarizer: ✅ Action items extracted: 1
+2025-08-06 23:58:03 [INFO] MeetingSummarizer: 👤 People extracted: 0
+2025-08-06 23:58:03 [INFO] MeetingSummarizer: 🕒 Dates parsed: 0
+2025-08-06 23:58:03 [INFO] MeetingSummarizer: ✅ Action items extracted: 0
+2025-08-06 23:58:03 [INFO] MeetingSummarizer: 👤 People extracted: 0
+2025-08-06 23:58:03 [INFO] MeetingSummarizer: 🕒 Dates parsed: 0
+2025-08-06 23:58:03 [INFO] MeetingSummarizer: ✅ Action items extracted: 1
+2025-08-06 23:58:03 [INFO] MeetingSummarizer: 👤 People extracted: 0
+2025-08-06 23:58:03 [INFO] MeetingSummarizer: 🕒 Dates parsed: 0
+2025-08-06 23:58:03 [INFO] MeetingSummarizer: ✅ Action items extracted: 0
+2025-08-06 23:58:03 [INFO] MeetingSummarizer: ✅ Transcript cleaned successfully.
+2025-08-06 23:58:03 [INFO] MeetingSummarizer: 🎤 Segmented transcript into 2 speaker blocks.
+2025-08-06 23:58:03 [INFO] MeetingSummarizer: 🧩 Split transcript into 5 chunks.
+2025-08-06 23:58:03 [INFO] MeetingSummarizer: 🔊 Transcribing audio file: /var/folders/dw/4l9d7nm15sd7z8my4232y6bw0000gn/T/tmp25j6qrm0.mp3 using model 'base'
+2025-08-06 23:58:03 [INFO] MeetingSummarizer: ✅ Transcription completed successfully.
+2025-08-06 23:58:03 [DEBUG] MeetingSummarizer: 🧹 Deleted temporary file: /var/folders/dw/4l9d7nm15sd7z8my4232y6bw0000gn/T/tmp25j6qrm0.mp3
+2025-08-06 23:58:03 [ERROR] MeetingSummarizer: ❌ Unsupported audio format: .flac
+2025-08-06 23:58:57 [INFO] MeetingSummarizer: 👤 People extracted: 2
+2025-08-06 23:58:57 [INFO] MeetingSummarizer: 🕒 Dates parsed: 0
+2025-08-06 23:58:57 [INFO] MeetingSummarizer: ✅ Action items extracted: 0
+2025-08-06 23:58:57 [INFO] MeetingSummarizer: 👤 People extracted: 0
+2025-08-06 23:58:57 [INFO] MeetingSummarizer: 🕒 Dates parsed: 0
+2025-08-06 23:58:57 [INFO] MeetingSummarizer: ✅ Action items extracted: 0
+2025-08-06 23:58:57 [INFO] MeetingSummarizer: 👤 People extracted: 0
+2025-08-06 23:58:57 [INFO] MeetingSummarizer: 🕒 Dates parsed: 0
+2025-08-06 23:58:57 [INFO] MeetingSummarizer: ✅ Action items extracted: 1
+2025-08-06 23:58:57 [INFO] MeetingSummarizer: 👤 People extracted: 0
+2025-08-06 23:58:57 [INFO] MeetingSummarizer: 🕒 Dates parsed: 0
+2025-08-06 23:58:57 [INFO] MeetingSummarizer: ✅ Action items extracted: 0
+2025-08-06 23:58:57 [INFO] MeetingSummarizer: 👤 People extracted: 0
+2025-08-06 23:58:57 [INFO] MeetingSummarizer: 🕒 Dates parsed: 1
+2025-08-06 23:58:57 [INFO] MeetingSummarizer: ✅ Action items extracted: 1
+2025-08-06 23:58:57 [INFO] MeetingSummarizer: 👤 People extracted: 0
+2025-08-06 23:58:57 [INFO] MeetingSummarizer: 🕒 Dates parsed: 0
+2025-08-06 23:58:57 [INFO] MeetingSummarizer: ✅ Action items extracted: 0
+2025-08-06 23:58:57 [INFO] MeetingSummarizer: ✅ Transcript cleaned successfully.
+2025-08-06 23:58:57 [INFO] MeetingSummarizer: 🎤 Segmented transcript into 2 speaker blocks.
+2025-08-06 23:58:57 [INFO] MeetingSummarizer: 🧩 Split transcript into 5 chunks.
+2025-08-06 23:58:57 [INFO] MeetingSummarizer: 🔊 Transcribing audio file: /var/folders/dw/4l9d7nm15sd7z8my4232y6bw0000gn/T/tmpbzk9xyma.mp3 using model 'base'
+2025-08-06 23:58:57 [INFO] MeetingSummarizer: ✅ Transcription completed successfully.
+2025-08-06 23:58:57 [DEBUG] MeetingSummarizer: 🧹 Deleted temporary file: /var/folders/dw/4l9d7nm15sd7z8my4232y6bw0000gn/T/tmpbzk9xyma.mp3
+2025-08-06 23:58:57 [ERROR] MeetingSummarizer: ❌ Unsupported audio format: .flac
+2025-08-07 00:00:27 [INFO] MeetingSummarizer: 👤 People extracted: 2
+2025-08-07 00:00:27 [INFO] MeetingSummarizer: 🕒 Dates parsed: 0
+2025-08-07 00:00:27 [INFO] MeetingSummarizer: ✅ Action items extracted: 0
+2025-08-07 00:00:27 [INFO] MeetingSummarizer: 👤 People extracted: 0
+2025-08-07 00:00:27 [INFO] MeetingSummarizer: 🕒 Dates parsed: 0
+2025-08-07 00:00:27 [INFO] MeetingSummarizer: ✅ Action items extracted: 0
+2025-08-07 00:00:27 [INFO] MeetingSummarizer: 👤 People extracted: 0
+2025-08-07 00:00:27 [INFO] MeetingSummarizer: 🕒 Dates parsed: 0
+2025-08-07 00:00:27 [INFO] MeetingSummarizer: ✅ Action items extracted: 1
+2025-08-07 00:00:27 [INFO] MeetingSummarizer: 👤 People extracted: 0
+2025-08-07 00:00:27 [INFO] MeetingSummarizer: 🕒 Dates parsed: 0
+2025-08-07 00:00:27 [INFO] MeetingSummarizer: ✅ Action items extracted: 0
+2025-08-07 00:00:27 [INFO] MeetingSummarizer: 👤 People extracted: 0
+2025-08-07 00:00:27 [INFO] MeetingSummarizer: 🕒 Dates parsed: 1
+2025-08-07 00:00:27 [INFO] MeetingSummarizer: ✅ Action items extracted: 1
+2025-08-07 00:00:27 [INFO] MeetingSummarizer: 👤 People extracted: 0
+2025-08-07 00:00:27 [INFO] MeetingSummarizer: 🕒 Dates parsed: 0
+2025-08-07 00:00:27 [INFO] MeetingSummarizer: ✅ Action items extracted: 0
+2025-08-07 00:00:27 [INFO] MeetingSummarizer: ✅ Transcript cleaned successfully.
+2025-08-07 00:00:27 [INFO] MeetingSummarizer: 🎤 Segmented transcript into 2 speaker blocks.
+2025-08-07 00:00:27 [INFO] MeetingSummarizer: 🧩 Split transcript into 5 chunks.
+2025-08-07 00:00:27 [INFO] MeetingSummarizer: 🔊 Transcribing audio file: /var/folders/dw/4l9d7nm15sd7z8my4232y6bw0000gn/T/tmprxzdw_yv.mp3 using model 'base'
+2025-08-07 00:00:27 [INFO] MeetingSummarizer: ✅ Transcription completed successfully.
+2025-08-07 00:00:27 [DEBUG] MeetingSummarizer: 🧹 Deleted temporary file: /var/folders/dw/4l9d7nm15sd7z8my4232y6bw0000gn/T/tmprxzdw_yv.mp3
+2025-08-07 00:00:27 [ERROR] MeetingSummarizer: ❌ Unsupported audio format: .flac
+2025-08-07 00:01:42 [INFO] MeetingSummarizer: 👤 People extracted: 2
+2025-08-07 00:01:42 [INFO] MeetingSummarizer: 🕒 Dates parsed: 0
+2025-08-07 00:01:42 [INFO] MeetingSummarizer: ✅ Action items extracted: 0
+2025-08-07 00:01:42 [INFO] MeetingSummarizer: 👤 People extracted: 0
+2025-08-07 00:01:42 [INFO] MeetingSummarizer: 🕒 Dates parsed: 0
+2025-08-07 00:01:42 [INFO] MeetingSummarizer: ✅ Action items extracted: 0
+2025-08-07 00:01:42 [INFO] MeetingSummarizer: 👤 People extracted: 0
+2025-08-07 00:01:42 [INFO] MeetingSummarizer: 🕒 Dates parsed: 0
+2025-08-07 00:01:42 [INFO] MeetingSummarizer: ✅ Action items extracted: 1
+2025-08-07 00:01:42 [INFO] MeetingSummarizer: 👤 People extracted: 0
+2025-08-07 00:01:42 [INFO] MeetingSummarizer: 🕒 Dates parsed: 0
+2025-08-07 00:01:42 [INFO] MeetingSummarizer: ✅ Action items extracted: 0
+2025-08-07 00:01:42 [INFO] MeetingSummarizer: 👤 People extracted: 0
+2025-08-07 00:01:42 [INFO] MeetingSummarizer: 🕒 Dates parsed: 0
+2025-08-07 00:01:42 [INFO] MeetingSummarizer: ✅ Action items extracted: 1
+2025-08-07 00:01:42 [INFO] MeetingSummarizer: 👤 People extracted: 0
+2025-08-07 00:01:42 [INFO] MeetingSummarizer: 🕒 Dates parsed: 0
+2025-08-07 00:01:42 [INFO] MeetingSummarizer: ✅ Action items extracted: 0
+2025-08-07 00:01:42 [INFO] MeetingSummarizer: ✅ Transcript cleaned successfully.
+2025-08-07 00:01:42 [INFO] MeetingSummarizer: 🎤 Segmented transcript into 2 speaker blocks.
+2025-08-07 00:01:42 [INFO] MeetingSummarizer: 🧩 Split transcript into 5 chunks.
+2025-08-07 00:01:42 [INFO] MeetingSummarizer: 🔊 Transcribing audio file: /var/folders/dw/4l9d7nm15sd7z8my4232y6bw0000gn/T/tmp98kf6l4l.mp3 using model 'base'
+2025-08-07 00:01:42 [INFO] MeetingSummarizer: ✅ Transcription completed successfully.
+2025-08-07 00:01:42 [DEBUG] MeetingSummarizer: 🧹 Deleted temporary file: /var/folders/dw/4l9d7nm15sd7z8my4232y6bw0000gn/T/tmp98kf6l4l.mp3
+2025-08-07 00:01:42 [ERROR] MeetingSummarizer: ❌ Unsupported audio format: .flac
+2025-08-07 16:59:49 [INFO] MeetingSummarizer: 👤 People extracted: 2
+2025-08-07 16:59:49 [INFO] MeetingSummarizer: 🕒 Dates parsed: 0
+2025-08-07 16:59:49 [INFO] MeetingSummarizer: ✅ Action items extracted: 0
+2025-08-07 16:59:49 [INFO] MeetingSummarizer: 👤 People extracted: 0
+2025-08-07 16:59:49 [INFO] MeetingSummarizer: 🕒 Dates parsed: 0
+2025-08-07 16:59:49 [INFO] MeetingSummarizer: ✅ Action items extracted: 0
+2025-08-07 16:59:49 [INFO] MeetingSummarizer: 👤 People extracted: 0
+2025-08-07 16:59:49 [INFO] MeetingSummarizer: 🕒 Dates parsed: 0
+2025-08-07 16:59:49 [INFO] MeetingSummarizer: ✅ Action items extracted: 1
+2025-08-07 16:59:49 [INFO] MeetingSummarizer: 👤 People extracted: 0
+2025-08-07 16:59:49 [INFO] MeetingSummarizer: 🕒 Dates parsed: 0
+2025-08-07 16:59:49 [INFO] MeetingSummarizer: ✅ Action items extracted: 0
+2025-08-07 16:59:49 [INFO] MeetingSummarizer: 👤 People extracted: 0
+2025-08-07 16:59:49 [INFO] MeetingSummarizer: 🕒 Dates parsed: 0
+2025-08-07 16:59:49 [INFO] MeetingSummarizer: ✅ Action items extracted: 1
+2025-08-07 16:59:49 [INFO] MeetingSummarizer: 👤 People extracted: 0
+2025-08-07 16:59:49 [INFO] MeetingSummarizer: 🕒 Dates parsed: 0
+2025-08-07 16:59:49 [INFO] MeetingSummarizer: ✅ Action items extracted: 0
+2025-08-07 16:59:49 [INFO] MeetingSummarizer: ✅ Transcript cleaned successfully.
+2025-08-07 16:59:49 [INFO] MeetingSummarizer: 🎤 Segmented transcript into 2 speaker blocks.
+2025-08-07 16:59:49 [INFO] MeetingSummarizer: 🧩 Split transcript into 5 chunks.
+2025-08-07 16:59:49 [INFO] MeetingSummarizer: 🔊 Transcribing audio file: /var/folders/dw/4l9d7nm15sd7z8my4232y6bw0000gn/T/tmprjmyy9c4.mp3 using model 'base'
+2025-08-07 16:59:49 [INFO] MeetingSummarizer: ✅ Transcription completed successfully.
+2025-08-07 16:59:49 [DEBUG] MeetingSummarizer: 🧹 Deleted temporary file: /var/folders/dw/4l9d7nm15sd7z8my4232y6bw0000gn/T/tmprjmyy9c4.mp3
+2025-08-07 16:59:49 [ERROR] MeetingSummarizer: ❌ Unsupported audio format: .flac
+2025-08-07 17:01:17 [INFO] MeetingSummarizer: 👤 People extracted: 2
+2025-08-07 17:01:17 [INFO] MeetingSummarizer: 🕒 Dates parsed: 0
+2025-08-07 17:01:17 [INFO] MeetingSummarizer: ✅ Action items extracted: 0
+2025-08-07 17:01:17 [INFO] MeetingSummarizer: 👤 People extracted: 0
+2025-08-07 17:01:17 [INFO] MeetingSummarizer: 🕒 Dates parsed: 0
+2025-08-07 17:01:17 [INFO] MeetingSummarizer: ✅ Action items extracted: 0
+2025-08-07 17:01:17 [INFO] MeetingSummarizer: 👤 People extracted: 0
+2025-08-07 17:01:17 [INFO] MeetingSummarizer: 🕒 Dates parsed: 0
+2025-08-07 17:01:17 [INFO] MeetingSummarizer: ✅ Action items extracted: 1
+2025-08-07 17:01:17 [INFO] MeetingSummarizer: 👤 People extracted: 0
+2025-08-07 17:01:17 [INFO] MeetingSummarizer: 🕒 Dates parsed: 0
+2025-08-07 17:01:17 [INFO] MeetingSummarizer: ✅ Action items extracted: 0
+2025-08-07 17:01:17 [INFO] MeetingSummarizer: 👤 People extracted: 0
+2025-08-07 17:01:17 [INFO] MeetingSummarizer: 🕒 Dates parsed: 0
+2025-08-07 17:01:17 [INFO] MeetingSummarizer: ✅ Action items extracted: 1
+2025-08-07 17:01:17 [INFO] MeetingSummarizer: 👤 People extracted: 0
+2025-08-07 17:01:17 [INFO] MeetingSummarizer: 🕒 Dates parsed: 0
+2025-08-07 17:01:17 [INFO] MeetingSummarizer: ✅ Action items extracted: 0
+2025-08-07 17:01:17 [INFO] MeetingSummarizer: ✅ Transcript cleaned successfully.
+2025-08-07 17:01:17 [INFO] MeetingSummarizer: 🎤 Segmented transcript into 2 speaker blocks.
+2025-08-07 17:01:17 [INFO] MeetingSummarizer: 🧩 Split transcript into 5 chunks.
+2025-08-07 17:01:17 [INFO] MeetingSummarizer: 🔊 Transcribing audio file: /var/folders/dw/4l9d7nm15sd7z8my4232y6bw0000gn/T/tmppthzwh8b.mp3 using model 'base'
+2025-08-07 17:01:17 [INFO] MeetingSummarizer: ✅ Transcription completed successfully.
+2025-08-07 17:01:17 [DEBUG] MeetingSummarizer: 🧹 Deleted temporary file: /var/folders/dw/4l9d7nm15sd7z8my4232y6bw0000gn/T/tmppthzwh8b.mp3
+2025-08-07 17:01:17 [ERROR] MeetingSummarizer: ❌ Unsupported audio format: .flac
+2025-08-07 17:03:58 [INFO] MeetingSummarizer: 👤 People extracted: 2
+2025-08-07 17:03:58 [INFO] MeetingSummarizer: 🕒 Dates parsed: 0
+2025-08-07 17:03:58 [INFO] MeetingSummarizer: ✅ Action items extracted: 0
+2025-08-07 17:03:58 [INFO] MeetingSummarizer: 👤 People extracted: 0
+2025-08-07 17:03:58 [INFO] MeetingSummarizer: 🕒 Dates parsed: 0
+2025-08-07 17:03:58 [INFO] MeetingSummarizer: ✅ Action items extracted: 0
+2025-08-07 17:03:58 [INFO] MeetingSummarizer: 👤 People extracted: 0
+2025-08-07 17:03:58 [WARNING] MeetingSummarizer: ⚠️ Could not parse date string: 'next Friday'
+2025-08-07 17:03:58 [INFO] MeetingSummarizer: 🕒 Dates parsed: 0
+2025-08-07 17:03:58 [INFO] MeetingSummarizer: ✅ Action items extracted: 1
+2025-08-07 17:03:58 [INFO] MeetingSummarizer: 👤 People extracted: 0
+2025-08-07 17:03:58 [INFO] MeetingSummarizer: 🕒 Dates parsed: 0
+2025-08-07 17:03:58 [INFO] MeetingSummarizer: ✅ Action items extracted: 0
+2025-08-07 17:03:58 [INFO] MeetingSummarizer: 👤 People extracted: 0
+2025-08-07 17:03:58 [INFO] MeetingSummarizer: 🕒 Dates parsed: 1
+2025-08-07 17:03:58 [INFO] MeetingSummarizer: ✅ Action items extracted: 1
+2025-08-07 17:03:58 [INFO] MeetingSummarizer: 👤 People extracted: 0
+2025-08-07 17:03:58 [INFO] MeetingSummarizer: 🕒 Dates parsed: 0
+2025-08-07 17:03:58 [INFO] MeetingSummarizer: ✅ Action items extracted: 0
+2025-08-07 17:03:58 [INFO] MeetingSummarizer: ✅ Transcript cleaned successfully.
+2025-08-07 17:03:58 [INFO] MeetingSummarizer: 🎤 Segmented transcript into 2 speaker blocks.
+2025-08-07 17:03:58 [INFO] MeetingSummarizer: 🧩 Split transcript into 5 chunks.
+2025-08-07 17:03:58 [INFO] MeetingSummarizer: 🔊 Transcribing audio file: /var/folders/dw/4l9d7nm15sd7z8my4232y6bw0000gn/T/tmp5kc_0fxd.mp3 using model 'base'
+2025-08-07 17:03:58 [INFO] MeetingSummarizer: ✅ Transcription completed successfully.
+2025-08-07 17:03:58 [DEBUG] MeetingSummarizer: 🧹 Deleted temporary file: /var/folders/dw/4l9d7nm15sd7z8my4232y6bw0000gn/T/tmp5kc_0fxd.mp3
+2025-08-07 17:03:58 [ERROR] MeetingSummarizer: ❌ Unsupported audio format: .flac
+2025-08-07 17:04:55 [INFO] MeetingSummarizer: 👤 People extracted: 2
+2025-08-07 17:04:55 [INFO] MeetingSummarizer: 🕒 Dates parsed: 0
+2025-08-07 17:04:55 [INFO] MeetingSummarizer: ✅ Action items extracted: 0
+2025-08-07 17:04:55 [INFO] MeetingSummarizer: 👤 People extracted: 0
+2025-08-07 17:04:55 [INFO] MeetingSummarizer: 🕒 Dates parsed: 0
+2025-08-07 17:04:55 [INFO] MeetingSummarizer: ✅ Action items extracted: 0
+2025-08-07 17:04:55 [INFO] MeetingSummarizer: 👤 People extracted: 0
+2025-08-07 17:04:55 [WARNING] MeetingSummarizer: ⚠️ Could not parse date string: 'next Friday'
+2025-08-07 17:04:55 [INFO] MeetingSummarizer: 🕒 Dates parsed: 0
+2025-08-07 17:04:55 [INFO] MeetingSummarizer: ✅ Action items extracted: 1
+2025-08-07 17:04:55 [INFO] MeetingSummarizer: 👤 People extracted: 0
+2025-08-07 17:04:55 [INFO] MeetingSummarizer: 🕒 Dates parsed: 0
+2025-08-07 17:04:55 [INFO] MeetingSummarizer: ✅ Action items extracted: 0
+2025-08-07 17:04:55 [INFO] MeetingSummarizer: 👤 People extracted: 0
+2025-08-07 17:04:55 [INFO] MeetingSummarizer: 🕒 Dates parsed: 1
+2025-08-07 17:04:55 [INFO] MeetingSummarizer: ✅ Action items extracted: 1
+2025-08-07 17:04:55 [INFO] MeetingSummarizer: 👤 People extracted: 0
+2025-08-07 17:04:55 [INFO] MeetingSummarizer: 🕒 Dates parsed: 0
+2025-08-07 17:04:55 [INFO] MeetingSummarizer: ✅ Action items extracted: 0
+2025-08-07 17:04:55 [INFO] MeetingSummarizer: ✅ Transcript cleaned successfully.
+2025-08-07 17:04:55 [INFO] MeetingSummarizer: 🎤 Segmented transcript into 2 speaker blocks.
+2025-08-07 17:04:55 [INFO] MeetingSummarizer: 🧩 Split transcript into 5 chunks.
+2025-08-07 17:04:55 [INFO] MeetingSummarizer: 🔊 Transcribing audio file: /var/folders/dw/4l9d7nm15sd7z8my4232y6bw0000gn/T/tmpzveovqf0.mp3 using model 'base'
+2025-08-07 17:04:55 [INFO] MeetingSummarizer: ✅ Transcription completed successfully.
+2025-08-07 17:04:55 [DEBUG] MeetingSummarizer: 🧹 Deleted temporary file: /var/folders/dw/4l9d7nm15sd7z8my4232y6bw0000gn/T/tmpzveovqf0.mp3
+2025-08-07 17:04:55 [ERROR] MeetingSummarizer: ❌ Unsupported audio format: .flac
+2025-08-07 17:05:07 [INFO] MeetingSummarizer: 👤 People extracted: 2
+2025-08-07 17:05:07 [INFO] MeetingSummarizer: 🕒 Dates parsed: 0
+2025-08-07 17:05:07 [INFO] MeetingSummarizer: ✅ Action items extracted: 0
+2025-08-07 17:05:07 [INFO] MeetingSummarizer: 👤 People extracted: 0
+2025-08-07 17:05:07 [INFO] MeetingSummarizer: 🕒 Dates parsed: 0
+2025-08-07 17:05:07 [INFO] MeetingSummarizer: ✅ Action items extracted: 0
+2025-08-07 17:05:07 [INFO] MeetingSummarizer: 👤 People extracted: 0
+2025-08-07 17:05:07 [WARNING] MeetingSummarizer: ⚠️ Could not parse date string: 'next Friday'
+2025-08-07 17:05:07 [INFO] MeetingSummarizer: 🕒 Dates parsed: 0
+2025-08-07 17:05:07 [INFO] MeetingSummarizer: ✅ Action items extracted: 1
+2025-08-07 17:05:07 [INFO] MeetingSummarizer: 👤 People extracted: 0
+2025-08-07 17:05:07 [INFO] MeetingSummarizer: 🕒 Dates parsed: 0
+2025-08-07 17:05:07 [INFO] MeetingSummarizer: ✅ Action items extracted: 0
+2025-08-07 17:05:07 [INFO] MeetingSummarizer: 👤 People extracted: 0
+2025-08-07 17:05:07 [INFO] MeetingSummarizer: 🕒 Dates parsed: 1
+2025-08-07 17:05:07 [INFO] MeetingSummarizer: ✅ Action items extracted: 1
+2025-08-07 17:05:07 [INFO] MeetingSummarizer: 👤 People extracted: 0
+2025-08-07 17:05:07 [INFO] MeetingSummarizer: 🕒 Dates parsed: 0
+2025-08-07 17:05:07 [INFO] MeetingSummarizer: ✅ Action items extracted: 0
+2025-08-07 17:05:07 [INFO] MeetingSummarizer: ✅ Transcript cleaned successfully.
+2025-08-07 17:05:07 [INFO] MeetingSummarizer: 🎤 Segmented transcript into 2 speaker blocks.
+2025-08-07 17:05:07 [INFO] MeetingSummarizer: 🧩 Split transcript into 5 chunks.
+2025-08-07 17:05:07 [INFO] MeetingSummarizer: 🔊 Transcribing audio file: /var/folders/dw/4l9d7nm15sd7z8my4232y6bw0000gn/T/tmpfaudh3g9.mp3 using model 'base'
+2025-08-07 17:05:07 [INFO] MeetingSummarizer: ✅ Transcription completed successfully.
+2025-08-07 17:05:07 [DEBUG] MeetingSummarizer: 🧹 Deleted temporary file: /var/folders/dw/4l9d7nm15sd7z8my4232y6bw0000gn/T/tmpfaudh3g9.mp3
+2025-08-07 17:05:07 [ERROR] MeetingSummarizer: ❌ Unsupported audio format: .flac
+2025-08-07 17:05:53 [INFO] MeetingSummarizer: 👤 People extracted: 2
+2025-08-07 17:05:53 [INFO] MeetingSummarizer: 🕒 Dates parsed: 0
+2025-08-07 17:05:53 [INFO] MeetingSummarizer: ✅ Action items extracted: 0
+2025-08-07 17:05:53 [INFO] MeetingSummarizer: 👤 People extracted: 0
+2025-08-07 17:05:53 [INFO] MeetingSummarizer: 🕒 Dates parsed: 0
+2025-08-07 17:05:53 [INFO] MeetingSummarizer: ✅ Action items extracted: 0
+2025-08-07 17:05:53 [INFO] MeetingSummarizer: 👤 People extracted: 0
+2025-08-07 17:05:53 [WARNING] MeetingSummarizer: ⚠️ Could not parse date string: 'next Friday'
+2025-08-07 17:05:53 [INFO] MeetingSummarizer: 🕒 Dates parsed: 0
+2025-08-07 17:05:53 [INFO] MeetingSummarizer: ✅ Action items extracted: 1
+2025-08-07 17:05:53 [INFO] MeetingSummarizer: 👤 People extracted: 0
+2025-08-07 17:05:53 [INFO] MeetingSummarizer: 🕒 Dates parsed: 0
+2025-08-07 17:05:53 [INFO] MeetingSummarizer: ✅ Action items extracted: 0
+2025-08-07 17:05:53 [INFO] MeetingSummarizer: 👤 People extracted: 0
+2025-08-07 17:05:53 [INFO] MeetingSummarizer: 🕒 Dates parsed: 1
+2025-08-07 17:05:53 [INFO] MeetingSummarizer: ✅ Action items extracted: 1
+2025-08-07 17:05:53 [INFO] MeetingSummarizer: 👤 People extracted: 0
+2025-08-07 17:05:53 [INFO] MeetingSummarizer: 🕒 Dates parsed: 0
+2025-08-07 17:05:53 [INFO] MeetingSummarizer: ✅ Action items extracted: 0
+2025-08-07 17:05:53 [INFO] MeetingSummarizer: ✅ Transcript cleaned successfully.
+2025-08-07 17:05:53 [INFO] MeetingSummarizer: 🎤 Segmented transcript into 2 speaker blocks.
+2025-08-07 17:05:53 [INFO] MeetingSummarizer: 🧩 Split transcript into 5 chunks.
+2025-08-07 17:05:53 [INFO] MeetingSummarizer: 🔊 Transcribing audio file: /var/folders/dw/4l9d7nm15sd7z8my4232y6bw0000gn/T/tmps_molbty.mp3 using model 'base'
+2025-08-07 17:05:53 [INFO] MeetingSummarizer: ✅ Transcription completed successfully.
+2025-08-07 17:05:53 [DEBUG] MeetingSummarizer: 🧹 Deleted temporary file: /var/folders/dw/4l9d7nm15sd7z8my4232y6bw0000gn/T/tmps_molbty.mp3
+2025-08-07 17:05:53 [ERROR] MeetingSummarizer: ❌ Unsupported audio format: .flac
+2025-08-07 17:10:31 [INFO] MeetingSummarizer: 👤 People extracted: 2
+2025-08-07 17:10:31 [INFO] MeetingSummarizer: 🔍 No dates found in input text.
+2025-08-07 17:10:31 [INFO] MeetingSummarizer: 🕒 Dates parsed: 0
+2025-08-07 17:10:31 [INFO] MeetingSummarizer: ✅ Action items extracted: 0
+2025-08-07 17:10:31 [INFO] MeetingSummarizer: 👤 People extracted: 0
+2025-08-07 17:10:31 [INFO] MeetingSummarizer: 🔍 No dates found in input text.
+2025-08-07 17:10:31 [INFO] MeetingSummarizer: 🕒 Dates parsed: 0
+2025-08-07 17:10:31 [INFO] MeetingSummarizer: ✅ Action items extracted: 0
+2025-08-07 17:10:31 [INFO] MeetingSummarizer: 👤 People extracted: 0
+2025-08-07 17:10:31 [INFO] MeetingSummarizer: 🕒 Dates parsed: 1
+2025-08-07 17:10:31 [INFO] MeetingSummarizer: ✅ Action items extracted: 1
+2025-08-07 17:10:31 [INFO] MeetingSummarizer: 👤 People extracted: 0
+2025-08-07 17:10:31 [INFO] MeetingSummarizer: 🔍 No dates found in input text.
+2025-08-07 17:10:31 [INFO] MeetingSummarizer: 🕒 Dates parsed: 0
+2025-08-07 17:10:31 [INFO] MeetingSummarizer: ✅ Action items extracted: 0
+2025-08-07 17:10:31 [INFO] MeetingSummarizer: 👤 People extracted: 0
+2025-08-07 17:10:31 [INFO] MeetingSummarizer: 🕒 Dates parsed: 1
+2025-08-07 17:10:31 [INFO] MeetingSummarizer: ✅ Action items extracted: 1
+2025-08-07 17:10:31 [INFO] MeetingSummarizer: 👤 People extracted: 0
+2025-08-07 17:10:31 [INFO] MeetingSummarizer: 🔍 No dates found in input text.
+2025-08-07 17:10:31 [INFO] MeetingSummarizer: 🕒 Dates parsed: 0
+2025-08-07 17:10:31 [INFO] MeetingSummarizer: ✅ Action items extracted: 0
+2025-08-07 17:10:31 [INFO] MeetingSummarizer: ✅ Transcript cleaned successfully.
+2025-08-07 17:10:31 [INFO] MeetingSummarizer: 🎤 Segmented transcript into 2 speaker blocks.
+2025-08-07 17:10:31 [INFO] MeetingSummarizer: 🧩 Split transcript into 5 chunks.
+2025-08-07 17:10:31 [INFO] MeetingSummarizer: 🔊 Transcribing audio file: /var/folders/dw/4l9d7nm15sd7z8my4232y6bw0000gn/T/tmp1ttmkr_3.mp3 using model 'base'
+2025-08-07 17:10:31 [INFO] MeetingSummarizer: ✅ Transcription completed successfully.
+2025-08-07 17:10:31 [DEBUG] MeetingSummarizer: 🧹 Deleted temporary file: /var/folders/dw/4l9d7nm15sd7z8my4232y6bw0000gn/T/tmp1ttmkr_3.mp3
+2025-08-07 17:10:31 [ERROR] MeetingSummarizer: ❌ Unsupported audio format: .flac
