@@ -3,3 +3,8 @@ pip install git+https://github.com/m-bain/whisperx.git
 pip install faster-whisper
 pip install torchaudio
 pip install ffmpeg-python
+pip install webvtt-py
+pip install pysrt
+pip install plotly
+pip install reportlab
+pip install python-docx

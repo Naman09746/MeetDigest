@@ -1,0 +1,19 @@
+[00:00] John: Good morning everyone, thanks for joining the weekly sync. Today we need to cover three main points: the budget review, the upcoming product launch, and the hiring updates.
+
+[00:15] Mary: For the budget, I checked with finance. We are slightly over the marketing spend for Q2. However, engineering is under budget, so we might be able to balance it out. I’ll send a detailed report later today. Also, we need to start preparing projections for Q3 because leadership is asking earlier this time.
+
+[00:45] Alex: Regarding the product launch, the design team finished the new mockups. The developers are on track to finish integration by next week. The only pending task is QA testing, which should take around five days. If everything goes well, we’re still on schedule for the September 15th launch. I recommend we prepare a contingency plan in case testing uncovers serious bugs.
+
+[01:15] Sarah: On hiring, we’ve extended offers to two backend engineers and one data scientist. They should be joining in the next month. We still need to fill the UI/UX designer position. I also think we should consider adding another QA engineer given the workload.
+
+[01:40] John: Thanks, Sarah. That’s a good point about QA. Let’s revisit that next week after we see how testing is going. Now, does anyone have updates on customer feedback?
+
+[02:00] Mary: Yes, I reviewed last week’s survey results. Customers are happy with the new dashboard but are asking for more flexibility in exporting data. Several mentioned wanting CSV and Excel options.
+
+[02:20] Alex: That’s doable. I’ll check with the dev team if we can add CSV export quickly. Excel might take more effort, but we’ll evaluate.
+
+[02:35] Sarah: Another piece of feedback was about response times on support tickets. Our SLA is 24 hours, but customers expect quicker responses, ideally under 12 hours.
+
+[02:50] John: Okay, so we should think about scaling support as well. I’ll talk to operations about it.
+
+[03:00] John: Let’s wrap up. Action items: Mary will finalize and share the budget report, and also prepare Q3 projections. Alex will coordinate with QA for testing and check CSV export feasibility. Sarah will continue the UI/UX hiring process and explore adding a QA engineer. I’ll follow up with ops on customer support scaling. Let’s aim to close these before next Monday’s meeting.

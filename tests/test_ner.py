@@ -1,7 +1,6 @@
 # tests/test_ner.py
 
 import pytest
-from modules import preprocessor
 from modules.ner_extractor import extract_entities
 
 @pytest.mark.parametrize("text, expected_people", [
@@ -10,8 +9,9 @@ from modules.ner_extractor import extract_entities
 ])
 def test_extract_people(text, expected_people):
     entities = extract_entities(text)
+    extracted_names = [p["name"] for p in entities["people"]]
     for person in expected_people:
-        assert person in entities["people"]
+        assert person in extracted_names
     assert isinstance(entities["people"], list)
 
 @pytest.mark.parametrize("text, expect_date", [
