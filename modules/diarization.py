@@ -9,7 +9,7 @@ from dataclasses import dataclass
 from modules.logger import logger
 import numpy as np
 from pathlib import Path
-
+from modules.meeting_context import MeetingContext
 # Type definitions
 ModelSize = Literal["tiny", "base", "small", "medium", "large", "large-v2", "large-v3"]
 
@@ -255,12 +255,14 @@ class DiarizationService:
     def transcribe_and_diarize(
         self, 
         file: BinaryIO, 
-        extension: str = "mp3"
-    ) -> DiarizationResult:
+        extension: str,
+        context: MeetingContext
+    ) -> MeetingContext:
         """
-        Transcribe audio and segment by speaker with comprehensive analysis.
-        Returns DiarizationResult with segments, statistics, and metadata.
+        Perform speaker diarization using WhisperX and enrich an existing MeetingContext
+        with speaker segments and speaker-level statistics.
         """
+
         if extension not in ['mp3', 'wav', 'm4a', 'webm', 'flac', 'ogg']:
             logger.error(f"Unsupported audio format: {extension}")
             raise ValueError(f"Unsupported audio format: .{extension}")
@@ -269,10 +271,10 @@ class DiarizationService:
         try:
             # Save to temporary file
             with tempfile.NamedTemporaryFile(delete=False, suffix=f".{extension}") as tmp:
-                file.read()
-                file.seek(0)  # Reset file pointer
+                file.seek(0)
                 tmp.write(file.read())
                 tmp_path = tmp.name
+
             
             logger.info(f"🎵 Processing audio file: {tmp_path}")
             
@@ -286,30 +288,30 @@ class DiarizationService:
             # Process all chunks
             all_word_segments = []
             detected_language = "en"
-            
+            # Process each chunk directly using the original audio file + time offsets
             for i, chunk in enumerate(chunks):
-                # Save chunk to temporary file for diarization
-                chunk_tmp_path = None
-                try:
-                    with tempfile.NamedTemporaryFile(delete=False, suffix=f".{extension}") as chunk_tmp:
-                        # Write chunk audio data (this is simplified - in practice you'd need proper audio encoding)
-                        chunk_tmp_path = chunk_tmp.name
-                        # For WhisperX, we can work directly with the original file and time offsets
-                        word_segments, language = self._process_single_chunk(chunk, tmp_path, i)
-                        all_word_segments.extend(word_segments)
-                        detected_language = language
-                finally:
-                    if chunk_tmp_path and os.path.exists(chunk_tmp_path):
-                        os.remove(chunk_tmp_path)
-            
+                word_segments, language = self._process_single_chunk(
+                    chunk,
+                    tmp_path,
+                    i
+                )
+                all_word_segments.extend(word_segments)
+                detected_language = language
+
+            # Handle case where no speech was detected
             if not all_word_segments:
                 logger.warning("⚠️ No word segments found in any chunks")
-                return DiarizationResult(
-                    speaker_segments=[("Unknown", "No speech detected")],
-                    speaker_stats=[],
-                    total_duration=total_duration,
-                    total_words=0
-                )
+
+                context.speaker_segments = [("Unknown", "No speech detected")]
+                context.speaker_stats = []
+
+                context.metadata["duration"] = total_duration
+                context.metadata["total_words"] = 0
+                context.metadata["num_speakers"] = 0
+                context.metadata["warning"] = "No speech detected"
+
+                return context
+
             
             # Group words by speaker
             speaker_map = {}
@@ -331,41 +333,51 @@ class DiarizationService:
             
             logger.info(f"🗣️ Diarization complete: {len(speaker_segments)} speakers, {total_words} words, {total_duration:.1f}s")
             
-            return DiarizationResult(
-                speaker_segments=speaker_segments,
-                speaker_stats=speaker_stats,
-                total_duration=total_duration,
-                total_words=total_words
-            )
+            context.speaker_segments = speaker_segments
+            context.speaker_stats = speaker_stats
+
+            context.metadata["duration"] = total_duration
+            context.metadata["total_words"] = total_words
+            context.metadata["num_speakers"] = len(speaker_segments)
+
+            return context
+
             
         except Exception as e:
             logger.exception("❌ Diarization failed")
-            return DiarizationResult(
-                speaker_segments=[("Unknown", "Diarization failed")],
-                speaker_stats=[],
-                total_duration=0.0,
-                total_words=0
-            )
+
+            context.speaker_segments = [("Unknown", "Diarization failed")]
+            context.speaker_stats = []
+
+            context.metadata["error"] = "Diarization failed"
+
+            return context
+
         finally:
             if tmp_path and os.path.exists(tmp_path):
                 os.remove(tmp_path)
                 logger.debug(f"🗑️ Cleaned up temporary file: {tmp_path}")
 
-    def get_speaker_summary(self, result: DiarizationResult) -> str:
-        """Generate a human-readable summary of speaker contributions."""
-        if not result.speaker_stats:
+    def get_speaker_summary(self, context: MeetingContext) -> str:
+        if not context.speaker_stats:
             return "No speakers detected."
-        
-        summary_lines = [f"📊 Speaker Analysis ({result.total_duration:.1f}s total, {result.total_words} words):\n"]
-        
-        for i, stats in enumerate(result.speaker_stats, 1):
+
+        total_duration = context.metadata.get("duration", 0)
+        total_words = context.metadata.get("total_words", 0)
+
+        summary_lines = [
+            f"📊 Speaker Analysis ({total_duration:.1f}s total, {total_words} words):\n"
+        ]
+
+        for i, stats in enumerate(context.speaker_stats, 1):
+            pct_words = (stats.word_count / total_words * 100) if total_words else 0
             summary_lines.append(
                 f"{i}. {stats.speaker_id}: "
-                f"{stats.word_count} words ({stats.word_count/result.total_words*100:.1f}%), "
+                f"{stats.word_count} words ({pct_words:.1f}%), "
                 f"{stats.talk_time_seconds:.1f}s ({stats.talk_time_percentage:.1f}%), "
                 f"{stats.segment_count} segments"
             )
-        
+
         return "\n".join(summary_lines)
 
     def clear_cache(self):

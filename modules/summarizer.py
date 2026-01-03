@@ -14,6 +14,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 import numpy as np
 import warnings
+from modules.meeting_context import MeetingContext
 
 # Download required NLTK data
 try:
@@ -577,3 +578,47 @@ def get_available_models() -> List[str]:
 def get_available_strategies() -> List[str]:
     """Get list of available summarization strategies"""
     return [strategy.value for strategy in SummaryStrategy]
+
+def enrich_context_with_summary(
+    context: MeetingContext,
+    config: SummaryConfig = None
+) -> MeetingContext:
+    """
+    Pipeline-stage wrapper that generates a summary from MeetingContext
+    and enriches it in-place.
+    """
+    if not context.raw_text.strip():
+        logger.warning("⚠️ Empty transcript text in MeetingContext for summarization.")
+        context.metadata["summary"] = "No content to summarize."
+        context.metadata["summary_quality"] = 0.0
+        return context
+
+    try:
+        summarizer = get_summarizer()
+        result = summarizer.summarize(context.raw_text, config)
+
+        # Attach summary and metadata to context
+        context.metadata["summary"] = result.summary
+        context.metadata["summary_strategy"] = result.strategy_used
+        context.metadata["summary_model"] = result.model_used
+        context.metadata["summary_quality"] = result.quality_score
+        context.metadata["summary_success_rate"] = result.success_rate
+        context.metadata["summary_chunk_count"] = result.chunk_count
+        context.metadata["summary_processing_time"] = result.processing_time
+
+        # Optional: keep key sentences if available
+        if result.key_sentences:
+            context.metadata["summary_key_sentences"] = result.key_sentences
+
+        logger.info(
+            f"📝 Summary added to context "
+            f"(quality={result.quality_score:.2f}, "
+            f"chunks={result.chunk_count})"
+        )
+
+        return context
+
+    except Exception:
+        logger.exception("❌ Failed to enrich MeetingContext with summary.")
+        context.metadata["summary_error"] = "Summarization failed"
+        return context

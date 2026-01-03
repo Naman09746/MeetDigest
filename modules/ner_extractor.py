@@ -7,6 +7,7 @@ from enum import Enum
 from modules.logger import logger
 from modules.date_utils import normalize_dates, extract_all_dates_from_text
 import streamlit as st
+from modules.meeting_context import MeetingContext
 
 # Load spaCy model once using Streamlit cache
 @st.cache_resource
@@ -443,6 +444,43 @@ def extract_entities(text: str) -> Dict[str, List[Dict]]:
     except Exception as e:
         logger.exception("❌ Failed to extract entities.")
         return {"people": [], "dates": [], "action_items": []}
+
+def enrich_context_with_entities(context: MeetingContext) -> MeetingContext:
+    """
+    Pipeline-stage wrapper that extracts entities from MeetingContext
+    and enriches it in-place.
+    """
+    if not context.raw_text.strip():
+        logger.warning("⚠️ Empty transcript text in MeetingContext for NER.")
+        context.metadata["entities"] = {
+            "people": [],
+            "dates": [],
+            "action_items": []
+        }
+        return context
+
+    try:
+        entities = extract_entities(context.raw_text)
+
+        # Attach structured entities to context
+        context.metadata["entities"] = entities
+        context.metadata["people"] = entities.get("people", [])
+        context.metadata["dates"] = entities.get("dates", [])
+        context.metadata["action_items"] = entities.get("action_items", [])
+
+        logger.info(
+            f"🧠 NER added to context: "
+            f"{len(context.metadata['people'])} people, "
+            f"{len(context.metadata['dates'])} dates, "
+            f"{len(context.metadata['action_items'])} action items"
+        )
+
+        return context
+
+    except Exception:
+        logger.exception("❌ Failed to enrich MeetingContext with NER data.")
+        context.metadata["entities_error"] = "NER extraction failed"
+        return context
 
 # Backward compatibility function
 def extract_entities_legacy(text: str) -> Dict[str, List[str]]:

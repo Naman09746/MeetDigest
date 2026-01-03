@@ -7,6 +7,7 @@ import json
 import io
 import base64
 from pathlib import Path
+from modules.meeting_context import MeetingContext
 
 # Core libraries
 from modules.logger import logger
@@ -1073,3 +1074,44 @@ def create_report_config(export_format: str = "txt",
         include_transcript=include_transcript,
         **kwargs
     )
+
+
+def generate_report_from_context(
+    context: MeetingContext,
+    export_format: str = "txt",
+    include_visuals: bool = True
+) -> Dict:
+    """
+    Pipeline adapter that converts MeetingContext into ReportData
+    and generates a final report.
+    """
+    try:
+        report_data = ReportData(
+            participants=context.metadata.get("people", []),
+            action_items=context.metadata.get("action_items", []),
+            dates=context.metadata.get("dates", []),
+            summary=context.metadata.get("summary", ""),
+            transcript=context.raw_text,
+            speaker_segments=context.speaker_segments,
+            title=context.metadata.get("title", "Meeting Summary Report"),
+            metadata=context.metadata
+        )
+
+        config = ReportConfig(
+            export_format=ExportFormat(export_format.lower()),
+            include_visuals=include_visuals,
+            include_statistics=True,
+            include_speaker_analysis=True,
+            include_priority_analysis=True
+        )
+
+        generator = get_report_generator()
+        return generator.generate_report(report_data, config)
+
+    except Exception:
+        logger.exception("❌ Failed to generate report from MeetingContext")
+        return {
+            "success": False,
+            "error": "Report generation failed"
+        }
+ 

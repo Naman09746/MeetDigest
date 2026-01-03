@@ -1,5 +1,5 @@
 # run_demo.py
-from modules.summariser import enhanced_summarize
+from modules.summarizer import enhanced_summarize
 import os
 
 def demo_transcription(text_file="data/sample_transcript.txt"):

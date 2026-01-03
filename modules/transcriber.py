@@ -7,7 +7,7 @@ from typing import BinaryIO, Optional, List, Dict, Union, Literal
 from dataclasses import dataclass
 from modules.logger import logger
 import streamlit as st
-
+from modules.meeting_context import MeetingContext
 SUPPORTED_AUDIO_EXTENSIONS = ['mp3', 'wav', 'm4a', 'webm', 'flac', 'ogg']
 DEFAULT_MODEL_NAME = "base"  # Can be "tiny", "base", "small", "medium", "large", "large-v2", "large-v3"
 CHUNK_DURATION = 300  # 5 minutes in seconds
@@ -283,96 +283,128 @@ def transcribe_audio(
     enable_chunking: bool = True,
     chunk_duration: int = CHUNK_DURATION,
     return_segments: bool = True
-) -> Union[str, TranscriptionResult]:
+) -> MeetingContext:
     """
-    Transcribe audio using Whisper model with advanced options.
-    
-    Args:
-        file: Audio file buffer
-        extension: File extension
-        model_name: Whisper model size
-        engine: Whisper implementation to use
-        language: Language hint (None for auto-detect)
-        enable_chunking: Whether to split long files into chunks
-        chunk_duration: Duration of each chunk in seconds
-        return_segments: Whether to return structured result with segments
-        
-    Returns:
-        Plain text string or TranscriptionResult object with segments
+    Transcribe audio using Whisper model with advanced options
+    and return a MeetingContext for downstream pipeline stages.
     """
     extension = extension.lower()
     if extension not in SUPPORTED_AUDIO_EXTENSIONS:
         logger.error(f"❌ Unsupported audio format: .{extension}")
-        raise ValueError(f"Unsupported audio format: .{extension}. Supported: {SUPPORTED_AUDIO_EXTENSIONS}")
+        raise ValueError(
+            f"Unsupported audio format: .{extension}. "
+            f"Supported: {SUPPORTED_AUDIO_EXTENSIONS}"
+        )
 
     tmp_path = None
     chunk_files = []
-    
+
     try:
         # Save uploaded file to temp location
         with tempfile.NamedTemporaryFile(delete=False, suffix=f".{extension}") as tmp:
             tmp.write(file.read())
             tmp_path = tmp.name
 
-        logger.info(f"🔊 Transcribing audio: {tmp_path} (model: {model_name}, engine: {engine})")
+        logger.info(
+            f"🔊 Transcribing audio: {tmp_path} "
+            f"(model={model_name}, engine={engine})"
+        )
 
-        # Get audio duration if possible
+        # Get audio duration
         duration = get_audio_duration(tmp_path)
         if duration:
             logger.info(f"📏 Audio duration: {duration:.1f} seconds")
 
-        # Load model
+        # Load Whisper / Faster-Whisper model
         model, actual_engine = load_whisper_model(model_name, engine)
 
-        # Determine if chunking is needed
-        should_chunk = (enable_chunking and duration and 
-                       duration > chunk_duration and 
-                       actual_engine == "whisper")  # Only chunk for standard whisper
+        # Decide whether to chunk
+        should_chunk = (
+            enable_chunking
+            and duration
+            and duration > chunk_duration
+            and actual_engine == "whisper"
+        )
 
         if should_chunk:
-            logger.info(f"🔪 Long audio detected, splitting into {chunk_duration}s chunks")
-            chunks = split_audio_chunks(tmp_path, chunk_duration, OVERLAP_DURATION)
-            chunk_files.extend([c["file_path"] for c in chunks if c["file_path"] != tmp_path])
-            
-            all_segments = []
-            
-            # Process each chunk
+            logger.info(
+                f"🔪 Long audio detected, splitting into {chunk_duration}s chunks"
+            )
+
+            chunks = split_audio_chunks(
+                tmp_path, chunk_duration, OVERLAP_DURATION
+            )
+            chunk_files.extend(
+                [c["file_path"] for c in chunks if c["file_path"] != tmp_path]
+            )
+
+            all_segments: List[TranscriptionSegment] = []
+
             for i, chunk in enumerate(chunks):
-                logger.info(f"🔄 Processing chunk {i+1}/{len(chunks)}")
-                
+                logger.info(
+                    f"🔄 Processing chunk {i + 1}/{len(chunks)}"
+                )
+
                 chunk_segments = transcribe_audio_chunk(
-                    chunk["file_path"], model, actual_engine,
-                    chunk["start_time"], language
+                    chunk["file_path"],
+                    model,
+                    actual_engine,
+                    chunk["start_time"],
+                    language
                 )
                 all_segments.extend(chunk_segments)
-            
-            # Merge overlapping segments
-            segments = merge_overlapping_segments(all_segments, OVERLAP_DURATION)
-            
-        else:
-            # Process entire file at once
-            segments = transcribe_audio_chunk(tmp_path, model, actual_engine, 0, language)
 
-        # Extract full text
-        full_text = " ".join(seg.text for seg in segments).strip()
-
-        if not full_text:
-            logger.warning("⚠️ Transcription returned empty text")
-            if return_segments:
-                return TranscriptionResult(text="", segments=[], duration=duration)
-            else:
-                return ""
-
-        logger.info(f"✅ Transcription completed: {len(segments)} segments, {len(full_text)} characters")
-
-        if return_segments:
-            return TranscriptionResult(
-                text=full_text,
-                segments=segments,
-                duration=duration
+            segments = merge_overlapping_segments(
+                all_segments, OVERLAP_DURATION
             )
         else:
-            return full_text
+            segments = transcribe_audio_chunk(
+                tmp_path, model, actual_engine, 0, language
+            )
+
+        # Build full text
+        full_text = " ".join(seg.text for seg in segments).strip()
+
+        # -------------------------
+        # EMPTY TRANSCRIPTION CASE
+        # -------------------------
+        if not full_text:
+            logger.warning("⚠️ Transcription returned empty text")
+
+            context = MeetingContext()
+            context.raw_text = ""
+            context.metadata["duration"] = duration
+            context.metadata["model"] = model_name
+            context.metadata["engine"] = actual_engine
+            context.metadata["error"] = "Empty transcription"
+            context.metadata["source"] = "audio"
+            context.metadata["file_extension"] = extension
+
+            return context
+
+        logger.info(
+            f"✅ Transcription completed: "
+            f"{len(segments)} segments, "
+            f"{len(full_text)} characters"
+        )
+
+        # -------------------------
+        # SUCCESS CASE
+        # -------------------------
+        context = MeetingContext()
+        context.raw_text = full_text
+
+        context.metadata["duration"] = duration
+        context.metadata["model"] = model_name
+        context.metadata["engine"] = actual_engine
+        context.metadata["language"] = language
+        context.metadata["source"] = "audio"
+        context.metadata["file_extension"] = extension
+
+        if return_segments:
+            context.metadata["segments"] = segments
+
+        return context
 
     except Exception as e:
         logger.exception("❌ Audio transcription failed")
@@ -386,7 +418,9 @@ def transcribe_audio(
                     os.remove(file_path)
                     logger.debug(f"🧹 Deleted temporary file: {file_path}")
                 except Exception as e:
-                    logger.warning(f"⚠️ Could not delete temp file {file_path}: {e}")
+                    logger.warning(
+                        f"⚠️ Could not delete temp file {file_path}: {e}"
+                    )
 
 
 def get_model_info() -> Dict[str, Dict]:
